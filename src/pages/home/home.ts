@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Flashlight } from '@ionic-native/flashlight';
+import {Flashlight} from 'ionic-native';
 
 @Component({
   selector: 'page-home',
@@ -13,22 +13,23 @@ public flashstatus;
 public flashvalue;
 
   constructor(public navCtrl: NavController, private flashlight: Flashlight) {
-  	this.flashstatus = 'off';
+    this.flashstatus = 'off';
     this.flashvalue = 1;
-  	this.flashlight.switchOn();
+  	// this.flashlight.switchOn();
   }
 
   LightOn() {
-        flashlight.available((isAvailable) => {
-            if(isAvailable)
-                flashlight.toggle();
+        // this.flashlight.available((isAvailable) => {
+            // if(isAvailable)
+               Flashlight.toggle();
+              // console.log(a);
                 this.flashvalue += 1;
-            if(this.flashvalue % 2 != 0)
-                this.flashstatus = 'on';
-            else
-                this.flashstatus = 'off';
-            
-        })
+                if(this.flashvalue % 2 != 0)
+                    this.flashstatus = 'on';
+                else
+                    this.flashstatus = 'off';
+
+        // })
     }
 
 }

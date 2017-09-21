@@ -19,17 +19,17 @@ public flashvalue;
   }
 
   LightOn() {
-        // this.flashlight.available((isAvailable) => {
-            // if(isAvailable)
-               Flashlight.toggle();
-              // console.log(a);
-                this.flashvalue += 1;
-                if(this.flashvalue % 2 != 0)
-                    this.flashstatus = 'on';
-                else
-                    this.flashstatus = 'off';
+    // this.flashlight.available((isAvailable) => {
+        // if(isAvailable)
+           Flashlight.toggle();
+          // console.log(a);
+            this.flashvalue += 1;
+            if(this.flashvalue % 2 != 0)
+                this.flashstatus = 'on';
+            else
+                this.flashstatus = 'off';
 
-        // })
+    // })
     }
 
 }

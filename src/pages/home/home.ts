@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {Flashlight} from 'ionic-native';
+import { BatteryStatus } from '@ionic-native/battery-status';
 
 @Component({
   selector: 'page-home',
@@ -12,7 +13,7 @@ export class HomePage {
 public flashstatus;
 public flashvalue;
 
-  constructor(public navCtrl: NavController, private flashlight: Flashlight) {
+  constructor(public navCtrl: NavController, private flashlight: Flashlight, private batteryStatus: BatteryStatus) {
     this.flashstatus = 'off';
     this.flashvalue = 1;
   	// this.flashlight.switchOn();
@@ -28,8 +29,15 @@ public flashvalue;
                 this.flashstatus = 'on';
             else
                 this.flashstatus = 'off';
-
     // })
-    }
+  }
+
+  let subscription = this.batteryStatus.onChange().subscribe(
+ (status: BatteryStatusResponse) => {
+   console.log(status.level, status.isPlugged);
+ });
+
+// stop watch
+subscription.unsubscribe();
 
 }

@@ -20,4 +20,14 @@
     <ion-icon name="flash"></ion-icon>
   </button>
 
+  <ion-navbar *navbar>
+    <ion-title>
+      Battery status:  {{batteryStatus}}
+    </ion-title>
+  </ion-navbar>
+
+  <ion-content class="home" padding>
+    <button (click)="obtainNetworkConnection()" full>Get Network Connection</button>
+  </ion-content>
+
 </ion-content>
